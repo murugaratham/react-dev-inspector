@@ -143,7 +143,7 @@ class OverlayTip {
       color: '#d7d7d7',
     })
 
-    this.tip.style.zIndex = '10000000'
+    this.tip.style.zIndex = '10000001'
     container.appendChild(this.tip)
   }
 
@@ -190,7 +190,7 @@ export default class Overlay {
 
     const doc = currentWindow.document
     this.container = doc.createElement('div')
-    this.container.style.zIndex = '10000000'
+    this.container.style.zIndex = '1000000000'
 
     this.tip = new OverlayTip(doc, this.container)
     this.rects = []
