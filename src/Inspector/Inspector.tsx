@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import type { Fiber } from 'react-reconciler'
 import hotkeys, { KeyHandler } from 'hotkeys-js'
-import { setupHighlighter } from './utils/hightlight'
+import { setupHighlighter } from './utils/highlight'
 import {
   getElementCodeInfo,
   gotoEditor,
@@ -103,6 +103,11 @@ export const Inspector: React.FC<InspectorProps> = (props) => {
     overlay.setRemoveCallback(stopCallback)
 
     overlayRef.current = overlay
+
+    const { scrollLeft, scrollTop } = document.documentElement
+    const element = document.elementFromPoint(scrollLeft, scrollTop)
+
+    handleHoverElement(element as HTMLElement)
     setIsInspect(true)
   }
 
